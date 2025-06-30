@@ -1,0 +1,58 @@
+/* ScrollStack Component Styles */
+.scroll-stack-container {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Sticky positioning for the content */
+.sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 5rem;
+    z-index: 10;
+}
+
+/* Performance optimizations */
+.transform-gpu {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+
+/* Smooth scrolling improvements */
+html {
+    scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    .group:hover img {
+        transform: none;
+    }
+
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Custom scroll animations */
+@keyframes parallax-scroll {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-100px);
+    }
+}
+
+.parallax-item {
+    animation: parallax-scroll linear;
+    animation-timeline: scroll();
+}
