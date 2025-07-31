@@ -47,7 +47,7 @@ const FAQItem: React.FC<FAQItemProps> = ({ question, answer, isOpen, onToggle })
     return (
         <div className="flex flex-col gap-4 border-b border-neutral-200 pb-8">
             <button
-                className="flex flex-row justify-between cursor-pointer group focus:outline-none focus:ring-2 focus:ring-accent-orange focus:ring-opacity-50 rounded-lg p-2"
+                className="flex flex-row justify-between cursor-pointer group  rounded-lg p-2"
                 onClick={onToggle}
                 onKeyDown={handleKeyDown}
                 aria-expanded={isOpen}
