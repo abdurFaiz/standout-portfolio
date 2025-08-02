@@ -84,7 +84,7 @@ const InfiniteScrollCards = ({
             start && "animate-scroll"
         )}
     >                {items.map((item, idx) => (<li
-        className="relative w-[550px] h-[450px] shrink-0 overflow-hidden rounded-xl cursor-pointer"
+        className="relative w-full max-w-[550px] h-[250px] sm:h-[300px] md:h-[350px] lg:h-[450px] shrink-0 overflow-hidden rounded-xl cursor-pointer"
         key={item.name + idx}
     >
         {item.image && (

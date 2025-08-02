@@ -1,7 +1,7 @@
 'use client';
 
 import BlurText from "../../components/BlurText";
-import NavBar from "./layout/Navbar";
+// import NavBar from "./layout/Navbar";
 import Link from "next/link";
 import Image from "next/image";
 import RotatingText from "../../components/RotatingText";
@@ -16,6 +16,8 @@ import FAQ from "../../components/FAQ";
 import CurvedLoop from "../../components/CurvedText";
 import MixedScrollSections from "../../components/Scroll2Direction";
 import { gsap } from "gsap";
+import Navbarr from "./layout/NavBar-1"
+import Footer from "./layout/Footer";
 
 // Define timeline data
 const timelineData = [
@@ -24,18 +26,18 @@ const timelineData = [
     title: (
       <div className="flex flex-col gap-1">
         <div className="text-sm font-Swiss721BT text-accent-orange uppercase tracking-wider">Step 1</div>
-        <div className="text-[36px] font-Swiss721BT text-accent-foreground-custom capitalize leading-relaxed font-medium">Let's Get In Touch</div>
+        <div className="text-3xl md:text-[36px] font-Swiss721BT text-accent-foreground-custom capitalize leading-snug font-medium">Let's Get In Touch</div>
       </div>
     ),
     content: (
       <SpotlightCard className="custom-spotlight-card relative" spotlightColor="rgba(255, 68, 9, 0.2)">
         <div className="relative flex flex-col gap-6  min-h-[432px] overflow-hidden">
           <div className="flex flex-col gap-4 z-10 relative">
-            <p className="px-8 pt-8 text-base text-accent-foreground-custom leading-relaxed font-Swiss721BT uppercase">
+            <p className="pt-4 px-4 md:px-8 md:pt-8 text-base text-accent-foreground-custom leading-snug font-Swiss721BT uppercase">
               Start by reaching out through our contact page. Fill out the form or book a call to discuss your project, goals, and ideas in even greater detail.
             </p>
           </div>
-          <div className="absolute right-0 -bottom-32">
+          <div className="absolute right-0 -bottom-1 md:-bottom-20 lg:-bottom-28 xl:-bottom-32">
             <Image
               src={'/images/calendar.png'}
               alt="Calendar"
@@ -59,19 +61,19 @@ const timelineData = [
     title: (
       <div className="flex flex-col gap-1">
         <div className="text-sm font-Swiss721BT text-accent-orange uppercase tracking-wider">Step 2</div>
-        <div className="text-[36px] font-Swiss721BT text-accent-foreground-custom capitalize leading-relaxed font-medium">Grab Your Designs</div>
+        <div className="text-3xl md:text-[36px] font-Swiss721BT text-accent-foreground-custom capitalize leading-snug font-medium">Grab Your Designs</div>
       </div>
     ),
     content: (
       <SpotlightCard className="custom-spotlight-card relative" spotlightColor="rgba(255, 68, 9, 0.2)">
-        <div className="relative flex flex-col gap-6  min-h-[432px] overflow-hidden">
+        <div className="relative flex flex-col gap-6  min-h-[360px] md:min-h-[432px] overflow-hidden">
           <div className="flex flex-col gap-4 z-10 relative">
-            <p className="px-8 pt-8 text-base text-accent-foreground-custom leading-relaxed font-Swiss721BT uppercase">
+            <p className="pt-4 px-4  md:px-8 md:pt-8 text-base text-accent-foreground-custom leading-snug font-Swiss721BT uppercase">
               Tell me your unique vision, and I’ll create stunning, functional designs that perfectly align with your goals and bring your ideas to life seamlessly.
             </p>
           </div>
 
-          <div className="absolute right-0 -bottom-3">
+          <div className="absolute right-0 -bottom-0 xl:-bottom-32">
             <Image
               src={'/images/grab-design.png'}
               alt="Grab Design"
@@ -93,18 +95,17 @@ const timelineData = [
     title: (
       <div className="flex flex-col gap-1">
         <div className="text-sm font-Swiss721BT text-accent-orange uppercase tracking-wider">Step 3</div>
-        <div className="text-[36px] font-Swiss721BT text-accent-foreground-custom capitalize leading-relaxed font-medium">Kickstart Development</div>
+        <div className="text-3xl md:text-[36px] font-Swiss721BT text-accent-foreground-custom capitalize leading-snu font-medium">Kickstart Development</div>
       </div>
     ),
     content: (
       <SpotlightCard className="custom-spotlight-card relative" spotlightColor="rgba(255, 68, 9, 0.2)">
-        <div className="relative flex flex-col gap-6  min-h-[432px] overflow-hidden">
+        <div className="relative flex flex-col gap-6 min-h-[360px] md:min-h-[432px] overflow-hidden">
           <div className="flex flex-col gap-4 z-10 relative">
-            <p className="px-8 pt-8 text-base text-accent-foreground-custom leading-relaxed font-Swiss721BT uppercase">
+            <p className="pt-4 px-4 md:px-8 md:pt-8 text-base text-accent-foreground-custom leading-snug font-Swiss721BT uppercase">
               I expertly transform your designs into a powerful, scalable solution, fully ready to launch and optimized for performance, usability, and growth.            </p>
           </div>
-
-          <div className="absolute right-0 -bottom-10">
+          <div className="absolute right-0 -bottom-1 md:-bottom-1 lg:-bottom-8">
             <Image
               src={'/images/tech-stack.png'}
               alt="Calendar"
@@ -129,18 +130,17 @@ const timelineData = [
     title: (
       <div className="flex flex-col gap-1">
         <div className="text-sm font-Swiss721BT text-accent-orange uppercase tracking-wider">Step 4</div>
-        <div className="text-[36px] font-Swiss721BT text-accent-foreground-custom capitalize leading-relaxed font-medium">Hand Over</div>
+        <div className="text-3xl md:text-[36px] font-Swiss721BT text-accent-foreground-custom capitalize leading-snug font-medium">Hand Over</div>
       </div>
     ),
     content: (
       <SpotlightCard className="custom-spotlight-card relative" spotlightColor="rgba(255, 68, 9, 0.2)">
-        <div className="relative flex flex-col gap-6  min-h-[432px] overflow-hidden">
+        <div className="relative flex flex-col gap-6 min-h-[390px] md:min-h-[432px] overflow-hidden">
           <div className="flex flex-col gap-4 z-10 relative">
-            <p className="px-8 pt-8 text-base text-accent-foreground-custom leading-relaxed font-Swiss721BT uppercase">
+            <p className=" pt-4 px-4 md:px-8 md:pt-8 text-base text-accent-foreground-custom leading-snug font-Swiss721BT uppercase">
               Receive a fully tested, polished, high-quality product tailored to your needs with support for seamless performance and long-term success.            </p>
           </div>
-
-          <div className="absolute left-8 -bottom-8">
+          <div className="absolute -bottom-1 md:-bottom-4 lg:-bottom-8 lg:left-8">
             <Image
               src={'/images/hand-over.png'}
               alt="Calendar"
@@ -335,26 +335,28 @@ export default function Home() {
 
 
   return (
-    <main className="min-h-screen bg-background-custom ">
-      <section id="home" className=" flex flex-col lg:mx-6 md:mx-5 sm:mx-4 mx-2">
-        <NavBar />
+    <main className="mx-auto bg-background-custom ">
+      <section id="home" className=" flex  justify-center flex-col overflow-hidden lg:mx-6 md:mx-5 mx-4 w-full">
+        <Navbarr />
         <div className="text-center">
           <BlurText
             text="ABDURRAHMAN"
             delay={120}
             animateBy="letters"
             direction="top"
-            className="text-[178px] font-Swiss721BTBlack font-black text-neutral-black-custom leading-40 -z-10"
+            className="text-center font-black text-white pt-16 md:pt-7 lg:pt-5 xl:pt-3  -z-10
+            text-4xl sm:text-6xl md:text-[90px] lg:text-[120px] xl:text-[170px]
+            mb-8"
           />
         </div>
-        <div className="flex flex-col gap-1 max-w-2xl pt-32">
+        <div className="flex flex-col gap-1 max-w-2xl pt-6 lg:pt-16  xl:pt-32">
           <div className="flex flex-row items-center gap-2">
             <Image src={"/icons/icon-accent.svg"} alt="icon" width={20} height={20} className="animate-spin-slow" />
-            <h2 className="uppercase font-Swiss721BT text-base text-neutral-black-700">AVAILABLE FOR NEW PROJECTS</h2>
+            <h2 className="uppercase font-Swiss721BT text-base text-neutral-black-700 font-semibold">AVAILABLE FOR NEW PROJECTS</h2>
           </div>
-          <div className="flex flex-col gap-6">
+          <div className="flex flex-col gap-4">
             <div>
-              <h1 className="font-Swiss721BT text-2xl text-neutral-black-700 leading-relaxed flex flex-row flex-wrap items-center gap-2">
+              <h1 className="font-Swiss721BT text-xl md:text-2xl text-neutral-black-700 leading-snug flex flex-row flex-wrap items-center gap-2">
                 <span>Get expert</span>
                 <span className="inline-block text-accent-orange">
                   <RotatingText
@@ -376,27 +378,26 @@ export default function Home() {
                 </span>
                 <span>for a fraction of the price.</span>
               </h1>
-              <p className="font-Swiss721BT text-2xl text-neutral-black-700">
+              <p className="font-Swiss721BT text-xl md:text-2xl text-neutral-black-700">
                 I build beautiful, scalable website experiences with a focus on delivering real results, faster.
               </p>
             </div>
             <Link
               href="/contact"
-              className="px-6 py-3 rounded-full bg-neutral-black-custom w-fit  hover:shadow-xl active:translate-y-[2px] transition-all duration-200 border border-neutral-700 inset-shadow-sm inset-shadow-foreground"
+              className="px-6 py-3 rounded-2xl bg-neutral-black-custom w-fit  hover:shadow-xl active:translate-y-[2px] transition-all duration-200 border border-neutral-700 inset-shadow-sm inset-shadow-foreground"
             >
               <ShinyText
                 text="Let’s Make Magic!"
                 disabled={false}
                 speed={3}
-                className="font-Swiss721BT uppercase text-2xl text-accent-orange drop-shadow-[1px_1px_1px_rgba(0,0,0,0.5)]"
+                className="font-Swiss721BT uppercase text-xl md:text-2xl text-accent-orange drop-shadow-[1px_1px_1px_rgba(0,0,0,0.5)]"
               />
             </Link>
-
           </div>
         </div>
       </section>
-      <section id="moving-cards" className="pt-32 pb-56 bg-gradient-to-b from-background-custom via-background-custom to-[#010101]">
-        <div className="flex flex-col w-full">
+      <section id="moving-cards" className="pt-12 md:pt-20 lg:pt-32 pb-24 md:pb-56 bg-gradient-to-b from-background-custom via-background-custom to-[#010101]">
+        <div className="flex flex-col gap-0 w-full">
           <InfiniteScrollCards
             items={[
               {
@@ -475,33 +476,33 @@ export default function Home() {
         </div>
 
         {/* Timeline content - centered container */}
-        <div className="relative z-10 w-full max-w-6xl mx-auto px-6 flex items-center justify-center">
+        <div className="relative z-10 w-full mx-auto flex items-center justify-center ">
           <Timeline data={timelineData} />
         </div>
       </section>
-      <div className="my-20">
-        <Link href='/fun' >
+      <div className="my-10 md:my-20">
+        <Link href='/soon' >
           <ScrollVelocity
             texts={['MOVE TO', 'DESIGN EXPLORATION']}
             velocity={velocity}
-            className="font-TiemposHeadlineLight font-bold text-8xl tracking-wide"
+            className="font-TiemposHeadlineLight font-bold text-4xl md:text-5xl lg:text-8xl tracking-wide"
           />
         </Link>
       </div>
-      <section id="faq" className=" flex flex-col my-44 lg:mx-6 md:mx-5 sm:mx-4 mx-2 gap-20">
+      <section id="faq" className=" flex flex-col my-10 xl:my-44 lg:mx-6 md:mx-5 sm:mx-4 mx-2 gap-20">
         <div className="flex flex-col gap-10">
           <div className="flex flex-col gap-1">
-            <h2 className="font-TiemposHeadlineLight font-medium text-center leading-relaxed text-6xl ">Frequently Asked Questions</h2>
+            <h2 className="font-TiemposHeadlineLight font-medium text-center leading-snug text-5xl xl:text-6xl ">Frequently Asked Questions</h2>
           </div>
-          <div className="flex flex-col gap-8">
+          <div className="flex flex-col gap-3 md:gap-8">
             <FAQ items={faqData} />
           </div>
         </div>
       </section>
       <section id="testimonials" className="relative mb-20">
-        <div className="flex flex-col gap-6 w-full py-20">
+        <div className="flex flex-col gap-6 w-full py-10 md:py-14 lg:py-20 px-4 md:px-0">
           <div className="relative">
-            <h3 className="font-TiemposHeadlineLight font-medium leading-snug text-6xl text-center text-neutral-black-custom">
+            <h3 className="font-TiemposHeadlineLight font-medium leading-snug text-4xl lg:text-6xl text-center text-neutral-black-custom">
               Built for people like you, <br /> loved by people like you
             </h3>
           </div>
@@ -546,7 +547,7 @@ export default function Home() {
             className="px-6 flex flex-row h-screen gap-6 w-full overflow-x-scroll snap-x snap-mandatory scrollbar-hide scroll-smooth"
           >
             {/* Testimonial Card 1 */}
-            <div className="snap-start flex-none flex flex-col justify-between p-7 bg-[#F6F7F8] w-[460px] rounded-[40px] h-[720px]">
+            <div className="snap-start flex-none flex flex-col justify-between p-7 bg-bg-medium-gray w-[460px] rounded-[40px] h-[720px]">
               <div className="flex flex-row justify-between items-center">
                 <Image
                   src={"/images/Erik.png"}
@@ -581,7 +582,7 @@ export default function Home() {
             </div>
 
             {/* Testimonial Card 2 */}
-            <div className="snap-start flex-none flex flex-col justify-between p-7 bg-[#F6F7F8] w-[460px] rounded-[40px] h-[720px]">
+            <div className="snap-start flex-none flex flex-col justify-between p-7 bg-bg-medium-gray w-[460px] rounded-[40px] h-[720px]">
               <div className="flex flex-row justify-between items-center">
                 <Image
                   src={"/images/Jim.png"}
@@ -616,7 +617,7 @@ export default function Home() {
             </div>
 
             {/* Testimonial Card 3 */}
-            <div className="snap-start flex-none flex flex-col justify-between p-7 bg-[#F6F7F8] w-[460px] rounded-[40px] h-[720px]">
+            <div className="snap-start flex-none flex flex-col justify-between p-7 bg-bg-medium-gray w-[460px] rounded-[40px] h-[720px]">
               <div className="flex flex-row justify-between items-center">
                 <Image
                   src={"/images/Jon.png"}
@@ -651,7 +652,7 @@ export default function Home() {
             </div>
 
             {/* Testimonial Card 4 */}
-            <div className="snap-start flex-none flex flex-col justify-between p-7 bg-[#F6F7F8] w-[460px] rounded-[40px] h-[720px]">
+            <div className="snap-start flex-none flex flex-col justify-between p-7 bg-bg-medium-gray w-[460px] rounded-[40px] h-[720px]">
               <div className="flex flex-row justify-between items-center">
                 <Image
                   src={"/images/steave.png"}
@@ -689,108 +690,76 @@ export default function Home() {
       </section>
       <div id="contact" className="min-h-screen">
         <div className="flex flex-col gap-16">
-          <h2 className="text-8xl font-Swiss721BT font-medium text-neutral-black-custom leading-tight px-6">Let’s start shaping <br /> <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent-orange to-medium-gray-custom">your ideas together_</span></h2>
+          <h2 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-Swiss721BT font-medium text-neutral-black-custom leading-tight px-6">Let’s start shaping <br /> <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent-orange to-medium-gray-custom">your ideas together_</span></h2>
           <form action="post" className="flex flex-col gap-6">
-            <div className="flex flex-col md:flex-row items-center gap-4 px-6">
-              <label className="text-5xl font-Swiss721BT text-neutral-black-custom" htmlFor="name">My Name is</label>
-              <input type="text" id="name" name="name" placeholder="first and last name" className="text-4xl px-4 py-2 border-b text-accent-orange w-full md:w-fit border-neutral-black-300  transition duration-200 outline-none" required />
-              <label className="text-5xl font-Swiss721BT text-neutral-black-custom" htmlFor="service">and I’m interested in </label>
-              <input type="service" id="service" name="text" placeholder="service name" className="text-4xl px-4 py-2 border-b text-accent-orange w-full md:w-fit border-neutral-black-300  transition duration-200 outline-none" required />
+            <div className="flex flex-col flex-wrap lg:flex-row lg:items-center gap-2 lg:gap-4 px-6">
+              <label className="text-4xl lg:text-5xl font-Swiss721BT text-neutral-black-custom" htmlFor="name">
+                My Name is
+              </label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="first and last name"
+                className="text-3xl lg:text-4xl px-4 py-2 border-b text-accent-orange w-full lg:w-fit border-neutral-black-300 transition duration-200 outline-none"
+                required
+              />
+              <label className="text-4xl lg:text-5xl font-Swiss721BT text-neutral-black-custom mt-2 lg:mt-0" htmlFor="service">
+                and I'm interested in
+              </label>
+              <input
+                type="text"
+                id="service"
+                name="service"
+                placeholder="service name"
+                className="text-3xl lg:text-4xl px-4 py-2 border-b text-accent-orange w-full lg:w-fit border-neutral-black-300 transition duration-200 outline-none"
+                required
+              />
             </div>
-            <div className="flex flex-col md:flex-row items-center gap-4 px-6">
-              <label className="text-5xl font-Swiss721BT text-neutral-black-custom" htmlFor="email">Please, contact me at </label>
-              <input type="email" id="email" name="text" placeholder="name@example.com" className="text-4xl px-4 py-2 border-b text-accent-orange w-full md:w-fit border-neutral-black-300  transition duration-200 outline-none" required />
+
+            <div className="flex flex-col lg:flex-row lg:items-center gap-2 lg:gap-4 px-6">
+              <label className="text-4xl lg:text-5xl font-Swiss721BT text-neutral-black-custom" htmlFor="email">
+                Please, contact me at
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="name@example.com"
+                className="text-3xl lg:text-4xl px-4 py-2 border-b text-accent-orange w-full lg:w-fit border-neutral-black-300 transition duration-200 outline-none"
+                required
+              />
             </div>
-            <div className="flex flex-col md:flex-row items-center gap-4 px-6">
-              <label className="text-5xl font-Swiss721BT text-neutral-black-custom" htmlFor="message">Optionally, I’m sharing more:</label>
-              <textarea id="message" name="message" rows={1} placeholder="your project details" className="text-4xl px-4 py-2 border-b text-accent-orange w-full md:w-fit border-neutral-black-300  transition duration-200 outline-none"></textarea>
+
+            <div className="flex flex-col lg:flex-row lg:items-start gap-2 lg:gap-4 px-6">
+              <label className="text-4xl lg:text-5xl font-Swiss721BT text-neutral-black-custom lg:pt-2" htmlFor="message">
+                Optionally, I'm sharing more:
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                rows={1}
+                placeholder="your project details"
+                className="text-3xl lg:text-4xl px-4 py-2 border-b text-accent-orange w-full lg:w-fit border-neutral-black-300 transition duration-200 outline-none resize-none min-h-[2.5rem]"
+              ></textarea>
             </div>
-            <div className="flex px-6 pt-12">
-              <button type="submit" className="flex items-center gap-4 px-6 py-3 bg-neutral-black-custom text-background-custom font-Swiss721BT font-medium text-2xl rounded-full cursor-auto">
+
+            <div className="flex  px-6 py-10 lg:py-12">
+              <button
+                type="submit"
+                className="flex justify-between w-full md:w-fit md:justify-start items-center gap-2 sm:gap-4 px-4 sm:px-6 py-2 sm:py-3 bg-neutral-black-custom text-background-custom font-Swiss721BT font-medium text-2xl rounded-full hover:bg-opacity-90 transition duration-200"
+              >
                 Send request
-                <Image src={"/icons/icon-arrow.svg"} width={60} height={60} alt="arrow down" className="rounded-full bg-background-custom w-fit translate-x-2" />
+                <div className=" rounded-full bg-background-custom flex items-center justify-center">
+                  <Image src={"/icons/icon-arrow.svg"} alt="arrow" width={24} height={24} className="size-12" />
+                </div>
               </button>
             </div>
           </form>
         </div>
       </div>
-      <section id='footer' className="min-h-screen relative flex items-center justify-center bg-[#010101]">
-        <div className="absolute inset-0 w-full h-full">
-          <DotGrid
-            dotSize={4}
-            gap={28}
-            baseColor="#010101"
-            activeColor="#FF4409"
-            proximity={250}
-            shockRadius={250}
-            shockStrength={5}
-            resistance={1050}
-            returnDuration={2.5}
-          />
-        </div>
-        <div className="relative z-20 rounded-3xl bg-background-custom size-full m-4 overflow-hidden">
-          <div className="flex flex-col gap-y-40 size-full">
-            <div className="flex flex-row w-full gap-4 px-6 pt-6">
-              <div className="flex flex-col gap-14 w-1/2">
-                <div className="relative">
-                  <h6 className="font-TiemposHeadlineLight text-5xl font-normal leading-tight text-shadow-neutral-black-custom">Tailored creativity, beyond expectations.<span className="px-4 py-2 leading-relaxed rounded-full bg-neutral-black-custom text-background-custom">Get in touch today ↗</span>
-                  </h6>
-                </div>
-                <div className="flex flex-row gap-6">
-                  <Image src={'/images/DealGif.gif'} alt="footer" width={400} height={400} className="object-cover rounded-2xl" loading="lazy" />
-                  <div className="flex flex-col gap-1">
-                    <p className="text-xl text-neutral-black-custom uppercase font-Swiss721BT font-semibold pb-2">CONNECT</p>
-                    <div className="flex flex-row gap-2 items-center ">
-                      <Image src={"/icons/linkedin-icon.svg"} alt="icon" width={20} height={20} className="object-cover" />
-                      <Link href="https://www.linkedin.com/in/abdurrahman-faiz-af" target="_blank" className="text-neutral-black-700 font-medium hover:text-accent-orange transition-colors duration-200">LinkedIn</Link>
-                    </div>
-                    <div className="flex flex-row gap-2 items-center ">
-                      <Image src={"/icons/dribbble-icon.svg"} alt="icon" width={20} height={20} className="object-cover" />
-                      <Link href="https://www.dribbble.com/abdurrahman-faiz" target="_blank" className="text-neutral-black-700 font-medium hover:text-accent-orange transition-colors duration-200">Dribble</Link>
-                    </div>
-                    <div className="flex flex-row gap-2 items-center ">
-                      <Image src={"/icons/instagram-icon.svg"} alt="icon" width={20} height={20} className="object-cover" />
-                      <Link href="https://www.instagram.com/abdurrahman_faiz" target="_blank" className="text-neutral-black-700 font-medium hover:text-accent-orange transition-colors duration-200">Instagram</Link>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className=" relative overflow-hidden justify-center items-end rounded-2xl w-1/2 min-h-[400px] p-6">
-                <CurvedLoop
-                  marqueeText="Be ✦ Creative ✦ With ✦ React ✦ Bits ✦"
-                  speed={6}
-                  curveAmount={350}
-                  direction="left"
-                  interactive={true}
-                  className="custom-text-style"
-                />
-                <CurvedLoop
-                  marqueeText="Be ✦ Creative ✦ With ✦ React ✦ Bits ✦"
-                  speed={6}
-                  curveAmount={420}
-                  direction="right"
-                  interactive={true}
-                  className="custom-text-style"
-                />
-              </div>
-            </div>
-            <div className="flex flex-col">
-              <p
-                className="text-Swiss721BTBlack text-center uppercase text-[200px] font-black bg-clip-text text-transparent tracking-tighter leading-none"
-                style={{
-                  backgroundImage: 'linear-gradient(to top, rgba(248, 246, 241, 0.01) 0%, rgba(248, 246, 241, 0.1) 5%, rgba(248, 246, 241, 0.15) 15%, rgba(248, 246, 241, 0.2) 20%, rgba(248, 246, 241, 0.3) 25%, #010101 100%)'
-                }}
-              >
-                ABDURRAHMAN
-              </p>
-              <div className="flex flex-row justify-between items-center px-6 -mt-5 pb-6">
-                <p className="text-base text-[#010101] font-light font-Swiss721BT capitalize">&copy; 2025 All pixels reserved</p>
-                <p className="text-base text-[#010101] font-light font-Swiss721BT capitalize">Working Globally</p>
-                <p className="text-base text-[#010101] font-light font-Swiss721BT capitalize">Creafted by Abdurrahman Faiz</p>
-              </div>
-            </div>
-          </div>
-        </div>
+      <section id='footer'>
+        <Footer />
       </section>
     </main>
   );

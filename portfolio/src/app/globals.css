@@ -38,6 +38,8 @@
   --color-neutral-black-700: #222222;
   --color-light-gray-custom: #F1F1F1;
   --color-medium-gray-custom: #484848;
+  --color-text-medium-gray: #929292;
+  --color-bg-medium-gray: #F2F1F3;
 
   /* custom font */
   --font-TiemposHeadlineLight: 'TiemposHeadlineLight', serif;
