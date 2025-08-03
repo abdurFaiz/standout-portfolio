@@ -9,22 +9,22 @@ import NavLink from "../../../components/NavLink";
 
 // Tautan untuk keadaan awal (top header)
 const initialNavLinks = [
-    { href: "#home", label: "HOME", isHighlighted: true },
-    { href: "#about", label: "ABOUT" },
-    { href: "#work", label: "WORK" },
+    { href: "/", label: "HOME", isHighlighted: true },
+    { href: "/about", label: "ABOUT" },
+    { href: "/work", label: "WORK" },
     { href: "#service", label: "SERVICE" },
-    { href: "#fun", label: "FUN" },
-    { href: "#contact", label: "CONTACT" },
+    { href: "/fun", label: "FUN" },
+    { href: "/contact", label: "CONTACT" },
 ]
 
 // Tautan untuk keadaan floating full navbar (sama dengan initial)
 const floatingNavLinks = [
-    { href: "#home", label: "HOME", isHighlighted: false },
-    { href: "#about", label: "ABOUT" },
-    { href: "#work", label: "WORK" },
+    { href: "/", label: "HOME", isHighlighted: false },
+    { href: "/about", label: "ABOUT" },
+    { href: "/work", label: "WORK" },
     { href: "#service", label: "SERVICE" },
-    { href: "#fun", label: "FUN" },
-    { href: "#contact", label: "CONTACT" },
+    { href: "/fun", label: "FUN" },
+    { href: "/contact", label: "CONTACT" },
 ]
 
 export default function Navbar() {
@@ -102,7 +102,7 @@ export default function Navbar() {
                                     "font-semibold text-accent-orange",
                                     link.isHighlighted && "font-semibold text-accent-orange"
                                 )}
-                                scrollToSection={link.href.startsWith('#')}
+                                scrollToSection={link.href.startsWith('/')}
                                 enableDecrypt={true}
                             >
                                 {link.label}
@@ -152,12 +152,16 @@ export default function Navbar() {
 
                     <div className="flex items-center space-x-2 ml-auto">
                         {/* Custom Button for Try for free */}
-                        <Link
-                            href="/contact"
+                        <a
+                            href="#contact"
                             className="inline-flex items-center justify-center whitespace-nowrap rounded-full bg-[#010101] text-background-custom font-Swiss721BT hover:bg-medium-gray-custom px-6 py-2 text-xl font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-neutral-black-custom disabled:pointer-events-none disabled:opacity-50 uppercase"
+                            onClick={e => {
+                                e.preventDefault();
+                                document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                            }}
                         >
                             Contact
-                        </Link>
+                        </a>
                         {/* Custom Sheet Trigger (Hamburger Menu Button) */}
                         <button
                             onClick={() => setIsSheetOpen(true)}

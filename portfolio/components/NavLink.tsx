@@ -79,6 +79,7 @@ export default function NavLink({
 
     return (
         <Link
+            prefetch={false}
             href={href}
             className={cn(
                 "transition-colors duration-200 relative",

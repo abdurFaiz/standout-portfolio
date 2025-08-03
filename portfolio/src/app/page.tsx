@@ -1,7 +1,6 @@
 'use client';
 
 import BlurText from "../../components/BlurText";
-// import NavBar from "./layout/Navbar";
 import Link from "next/link";
 import Image from "next/image";
 import RotatingText from "../../components/RotatingText";
@@ -13,7 +12,6 @@ import { Timeline } from "../../components/Timeline";
 import SpotlightCard from "../../components/SpotlightCard";
 import ScrollVelocity from "../../components/ScrollVelocity";
 import FAQ from "../../components/FAQ";
-import CurvedLoop from "../../components/CurvedText";
 import MixedScrollSections from "../../components/Scroll2Direction";
 import { gsap } from "gsap";
 import Navbarr from "./layout/NavBar-1"
@@ -336,7 +334,7 @@ export default function Home() {
 
   return (
     <main className="mx-auto bg-background-custom ">
-      <section id="home" className=" flex  justify-center flex-col overflow-hidden lg:mx-6 md:mx-5 mx-4 w-full">
+      <section id="home" className=" flex  justify-center flex-col overflow-hidden lg:mx-6 md:mx-5 mx-4">
         <Navbarr />
         <div className="text-center">
           <BlurText
@@ -382,9 +380,13 @@ export default function Home() {
                 I build beautiful, scalable website experiences with a focus on delivering real results, faster.
               </p>
             </div>
-            <Link
-              href="/contact"
+            <a
+              href="#contact"
               className="px-6 py-3 rounded-2xl bg-neutral-black-custom w-fit  hover:shadow-xl active:translate-y-[2px] transition-all duration-200 border border-neutral-700 inset-shadow-sm inset-shadow-foreground"
+              onClick={e => {
+                e.preventDefault();
+                document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+              }}
             >
               <ShinyText
                 text="Let’s Make Magic!"
@@ -392,7 +394,7 @@ export default function Home() {
                 speed={3}
                 className="font-Swiss721BT uppercase text-xl md:text-2xl text-accent-orange drop-shadow-[1px_1px_1px_rgba(0,0,0,0.5)]"
               />
-            </Link>
+            </a>
           </div>
         </div>
       </section>
@@ -456,10 +458,10 @@ export default function Home() {
           />
         </div>
       </section>
-      <div className="demo-section min-h-screen bg-[#010101]">
+      <div id="work" className=" min-h-screen bg-[#010101]">
         <MixedScrollSections />
       </div>
-      <section id="process" className="min-h-screen relative bg-[#010101] flex items-center justify-center">
+      <section id="service" className="min-h-screen relative bg-[#010101] flex items-center justify-center">
         {/* DotGrid as background */}
         <div className="absolute inset-0 w-full h-full">
           <DotGrid
