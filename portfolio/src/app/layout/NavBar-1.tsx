@@ -180,7 +180,7 @@ export default function Navbar() {
             {/* Custom Sheet Overlay */}
             {isSheetOpen && (
                 <div
-                    className="fixed inset-0 bg-cusring-neutral-black-custom/50 z-40 transition-opacity duration-300"
+                    className="fixed inset-0 bg-background-custom/50 z-40 transition-opacity duration-300"
                     onClick={() => setIsSheetOpen(false)}
                     aria-hidden="true"
                 />
@@ -189,7 +189,7 @@ export default function Navbar() {
             {/* Custom Sheet Content */}
             <div
                 className={cn(
-                    "fixed top-0 right-0 h-full w-[300px] sm:w-[400px] bg-background-custom/90 backdrop-blur-sm shadow-lg z-50 transition-transform duration-300 ease-in-out",
+                    "fixed top-0 right-0 h-full w-[800px] sm:w-full bg-background-custom/90 backdrop-blur-sm shadow-lg z-50 transition-transform duration-300 ease-in-out",
                     isSheetOpen ? "translate-x-0" : "translate-x-full",
                 )}
                 role="dialog"
@@ -199,10 +199,10 @@ export default function Navbar() {
                 <div className="flex justify-end p-4">
                     <button
                         onClick={() => setIsSheetOpen(false)}
-                        className="text-gray-500 hover:text-gray-700"
+                        className="text-medium-gray-custom hover:text-accent-orange transition-colors duration-200"
                         aria-label="Close menu"
                     >
-                        <X className="h-6 w-6" />
+                        <X className="size-6 md:size-8 lg:size-16" />
                     </button>
                 </div>
                 <nav className="flex flex-col gap-4 px-4 pb-4">
@@ -211,7 +211,7 @@ export default function Navbar() {
                         <NavLink
                             key={link.label}
                             href={link.href}
-                            className="text-lg font-medium uppercase"
+                            className="text-lg md:text-4xl lg:text-8xl font-medium uppercase"
                             activeClassName="text-accent-orange font-semibold"
                             onClick={() => setIsSheetOpen(false)} // Close sheet on link click
                             scrollToSection={link.href.startsWith('#')}

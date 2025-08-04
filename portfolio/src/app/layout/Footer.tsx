@@ -62,7 +62,7 @@ export default function Footer() {
                                 interactive={true}
                                 className="custom-text-style"
                             />
-                            <Image src={'/images/DealGif.gif'} alt="footer" width={600} height={600} className="md:mt-12 lg:mt-28 object-cover rounded-2xl" loading="lazy" />
+                            <Image src={'/images/DealGif.gif'} alt="footer" width={600} height={600} className="md:mt-12 object-cover rounded-2xl" loading="lazy" />
 
                         </div>
                     </div>

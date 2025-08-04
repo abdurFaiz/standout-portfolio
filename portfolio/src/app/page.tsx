@@ -16,6 +16,7 @@ import MixedScrollSections from "../../components/Scroll2Direction";
 import { gsap } from "gsap";
 import Navbarr from "./layout/NavBar-1"
 import Footer from "./layout/Footer";
+import emailjs from '@emailjs/browser';
 
 // Define timeline data
 const timelineData = [
@@ -278,8 +279,14 @@ const people = [
 ];
 
 export default function Home() {
+  const form = useRef<HTMLFormElement>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'success' | 'error' | ''>('');
   const [activeProject, setActiveProject] = useState(0);
   const [velocity, setVelocity] = useState(0);
+  const scrollContainerRef = useRef<HTMLDivElement>(null)
+  const [showLeftArrow, setShowLeftArrow] = useState(false)
+  const [showRightArrow, setShowRightArrow] = useState(false)
 
   useEffect(() => {
     let lastScrollY = window.scrollY;
@@ -307,10 +314,6 @@ export default function Home() {
     };
   }, []);
 
-  const scrollContainerRef = useRef<HTMLDivElement>(null)
-  const [showLeftArrow, setShowLeftArrow] = useState(false)
-  const [showRightArrow, setShowRightArrow] = useState(false)
-
   const scrollLeft = () => {
     if (scrollContainerRef.current) {
       gsap.to(scrollContainerRef.current, {
@@ -331,6 +334,41 @@ export default function Home() {
     }
   }
 
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus('');
+
+    try {
+      // Replace these with your actual EmailJS credentials
+      const result = await emailjs.sendForm(
+        'service_7vp42sk0423',     // Your service ID
+        'template_c94hs4j',        // Your template ID
+        form.current as HTMLFormElement,
+        '5DAG-pyCI9LMEAWYT'        // Your public key
+      );
+
+      console.log('Email sent successfully:', result.text);
+      setSubmitStatus('success');
+
+      // Type-safe form reset
+      if (form.current) {
+        (form.current as HTMLFormElement).reset();
+      }
+
+      // Clear success message after 5 seconds
+      setTimeout(() => setSubmitStatus(''), 5000);
+
+    } catch (error) {
+      console.error('Email sending failed:', error);
+      setSubmitStatus('error');
+
+      // Clear error message after 5 seconds
+      setTimeout(() => setSubmitStatus(''), 5000);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <main className="mx-auto bg-background-custom ">
@@ -416,11 +454,11 @@ export default function Home() {
               },
               {
                 name: "Design Project 4",
-                image: "/images/tumb_des_1.png"
+                image: "/images/tumb_des_4.png"
               },
               {
                 name: "Design Project 5",
-                image: "/images/tumb_des_2.png"
+                image: "/images/tumb_des_5.png"
               }
             ]}
             direction="left"
@@ -432,23 +470,23 @@ export default function Home() {
             items={[
               {
                 name: "Design Project 5",
-                image: "/images/tumb_des_2.png"
+                image: "/images/tumb_des_6.png"
               },
               {
                 name: "Design Project 1",
-                image: "/images/tumb_des_1.png"
+                image: "/images/tumb_des_7.png"
               },
               {
                 name: "Design Project 2",
-                image: "/images/tumb_des_2.png"
+                image: "/images/tumb_des_8.png"
               },
               {
                 name: "Design Project 3",
-                image: "/images/tumb_des_3.png"
+                image: "/images/tumb_des_9.png"
               },
               {
                 name: "Design Project 4",
-                image: "/images/tumb_des_1.png"
+                image: "/images/tumb_des_10.png"
               },
             ]}
             direction="right"
@@ -693,7 +731,19 @@ export default function Home() {
       <div id="contact" className="min-h-screen">
         <div className="flex flex-col gap-16">
           <h2 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-Swiss721BT font-medium text-neutral-black-custom leading-tight px-6">Let’s start shaping <br /> <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent-orange to-medium-gray-custom">your ideas together_</span></h2>
-          <form action="post" className="flex flex-col gap-6">
+          {submitStatus === 'success' && (
+            <div className="mx-6 p-4 bg-green-100 border border-green-400 text-green-700 rounded">
+              Thank you! Your message has been sent successfully.
+            </div>
+          )}
+
+          {submitStatus === 'error' && (
+            <div className="mx-6 p-4 bg-red-100 border border-red-400 text-red-700 rounded">
+              Sorry, there was an error sending your message. Please try again.
+            </div>
+          )}
+
+          <form ref={form} onSubmit={handleSubmit} action="post" className="flex flex-col gap-6">
             <div className="flex flex-col flex-wrap lg:flex-row lg:items-center gap-2 lg:gap-4 px-6">
               <label className="text-4xl lg:text-5xl font-Swiss721BT text-neutral-black-custom" htmlFor="name">
                 My Name is
@@ -705,6 +755,8 @@ export default function Home() {
                 placeholder="first and last name"
                 className="text-3xl lg:text-4xl px-4 py-2 border-b text-accent-orange w-full lg:w-fit border-neutral-black-300 transition duration-200 outline-none"
                 required
+                disabled={isSubmitting}
+
               />
               <label className="text-4xl lg:text-5xl font-Swiss721BT text-neutral-black-custom mt-2 lg:mt-0" htmlFor="service">
                 and I'm interested in
@@ -716,6 +768,8 @@ export default function Home() {
                 placeholder="service name"
                 className="text-3xl lg:text-4xl px-4 py-2 border-b text-accent-orange w-full lg:w-fit border-neutral-black-300 transition duration-200 outline-none"
                 required
+                disabled={isSubmitting}
+
               />
             </div>
 
@@ -726,10 +780,12 @@ export default function Home() {
               <input
                 type="email"
                 id="email"
-                name="email"
+                name="from_email"
                 placeholder="name@example.com"
                 className="text-3xl lg:text-4xl px-4 py-2 border-b text-accent-orange w-full lg:w-fit border-neutral-black-300 transition duration-200 outline-none"
                 required
+                disabled={isSubmitting}
+
               />
             </div>
 
@@ -738,6 +794,7 @@ export default function Home() {
                 Optionally, I'm sharing more:
               </label>
               <textarea
+                disabled={isSubmitting}
                 id="message"
                 name="message"
                 rows={1}
@@ -749,9 +806,11 @@ export default function Home() {
             <div className="flex  px-6 py-10 lg:py-12">
               <button
                 type="submit"
-                className="flex justify-between w-full md:w-fit md:justify-start items-center gap-2 sm:gap-4 px-4 sm:px-6 py-2 sm:py-3 bg-neutral-black-custom text-background-custom font-Swiss721BT font-medium text-2xl rounded-full hover:bg-opacity-90 transition duration-200"
-              >
-                Send request
+                className={`flex justify-between w-full md:w-fit md:justify-start items-center gap-2 sm:gap-4 px-4 sm:px-6 py-2 sm:py-3 bg-neutral-black-custom text-background-custom font-Swiss721BT font-medium text-2xl rounded-full transition duration-200 ${isSubmitting
+                  ? 'opacity-70 cursor-not-allowed'
+                  : 'hover:bg-opacity-90'
+                  }`}              >
+                {isSubmitting ? 'Sending...' : 'Send request'}
                 <div className=" rounded-full bg-background-custom flex items-center justify-center">
                   <Image src={"/icons/icon-arrow.svg"} alt="arrow" width={24} height={24} className="size-12" />
                 </div>

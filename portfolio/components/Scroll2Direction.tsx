@@ -8,6 +8,7 @@ import TextMarque from "./TextMarque"
 import ShinyText from "./ShinyText"
 import Link from "next/link"
 
+
 // Register GSAP plugins
 if (typeof window !== "undefined") {
     gsap.registerPlugin(ScrollTrigger)
@@ -134,7 +135,7 @@ export default function MixedScrollSections() {
                                     </div>
                                 </div>
                                 <Link
-                                    href="/contact"
+                                    href="/soon"
                                     className="px-6 py-3 rounded-2xl bg-neutral-black-custom w-full text-center hover:shadow-xl active:translate-y-[2px] transition-all duration-200 inset-shadow-sm inset-shadow-foreground"
                                 >
                                     <ShinyText
@@ -224,7 +225,7 @@ export default function MixedScrollSections() {
                                 </div>
                             </div>
                             <Link
-                                href="/contact"
+                                href="/soon"
                                 className="px-6 py-3 rounded-2xl bg-neutral-black-custom w-full text-center hover:shadow-xl active:translate-y-[2px] transition-all duration-200 inset-shadow-sm inset-shadow-foreground"
                             >
                                 <ShinyText
@@ -294,7 +295,7 @@ export default function MixedScrollSections() {
                                 </div>
                             </div>
                             <Link
-                                href="/contact"
+                                href="/soon"
                                 className="px-6 py-3 rounded-2xl bg-neutral-black-custom w-full text-center hover:shadow-xl active:translate-y-[2px] transition-all duration-200 inset-shadow-sm inset-shadow-foreground"
                             >
                                 <ShinyText
@@ -374,7 +375,7 @@ export default function MixedScrollSections() {
                                 </div>
                             </div>
                             <Link
-                                href="/contact"
+                                href="/soon"
                                 className="px-6 py-3 rounded-2xl bg-neutral-black-custom w-full text-center hover:shadow-xl active:translate-y-[2px] transition-all duration-200 inset-shadow-sm inset-shadow-foreground"
                             >
                                 <ShinyText
@@ -487,7 +488,7 @@ export default function MixedScrollSections() {
                                     Sentry Error Monitoring Integration connects two websites with Sentry to enable real-time error tracking and efficient issue resolution, enhancing system reliability
                                 </p>
                                 <Link
-                                    href="/contact"
+                                    href="/soon"
                                     className="px-6 py-3 rounded-2xl bg-neutral-black-custom size-fit  text-center
                              hover:shadow-xl active:translate-y-[2px] transition-all duration-200 
                              inset-shadow-sm inset-shadow-foreground "
@@ -555,7 +556,7 @@ export default function MixedScrollSections() {
                             alt="Scroll 2"
                             width={800}
                             height={800}
-                            className="md:w-96 h-full xl:w-[560px] object-cover rounded-lg"
+                            className="md:w-96 h-full xl:w-[480px] object-cover rounded-lg"
                         />
                     </div>
 
@@ -588,7 +589,7 @@ export default function MixedScrollSections() {
                             <div className="flex flex-row items-start lg:gap-8 xl:gap-10">
                                 <p className="text-xl font-Swiss721BT text-text-medium-gray max-w-2xl line-clamp-3">Manual appointment bookings often cause schedule conflicts and missed reminders. Appointly solves this with a mobile app offering real-time scheduling, automated notifications, integrated maps and an intuitive interface for seamless online and offline bookings.</p>
                                 <Link
-                                    href="/contact"
+                                    href="/soon"
                                     className="px-6 py-3 rounded-2xl bg-neutral-black-custom w-fit  hover:shadow-xl active:translate-y-[2px] transition-all duration-200 inset-shadow-sm inset-shadow-foreground"
                                 >
                                     <ShinyText
@@ -626,7 +627,7 @@ export default function MixedScrollSections() {
                             alt="Scroll 1"
                             width={800}
                             height={800}
-                            className="h-full lg:w-[320px] xl:w-[520px] object-cover"
+                            className="h-full lg:w-[320px] xl:w-[480px] object-cover"
                         />
                     </div>
                 </section>
@@ -637,7 +638,7 @@ export default function MixedScrollSections() {
                             <div className="flex flex-row items-start gap-24">
                                 <p className="text-xl font-Swiss721BT text-text-medium-gray max-w-2xl">Revamped SIPA Festival's website boosted user experience, attracting 2,000+ new users and a 15,233% traffic surge in 30 days, amplifying its cultural impact globally</p>
                                 <Link
-                                    href="/contact"
+                                    href="/soon"
                                     className="px-6 py-3 rounded-2xl bg-neutral-black-custom w-fit  hover:shadow-xl active:translate-y-[2px] transition-all duration-200 inset-shadow-sm inset-shadow-foreground"
                                 >
                                     <ShinyText
@@ -698,7 +699,7 @@ export default function MixedScrollSections() {
                             <div className="flex flex-row items-start gap-10">
                                 <p className="text-xl font-Swiss721BT text-text-medium-gray max-w-2xl">Application designed to help users, particularly students and young adults, navigate the challenges of choosing the right educational path and career</p>
                                 <Link
-                                    href="/contact"
+                                    href="/soon"
                                     className="px-6 py-3 rounded-2xl bg-neutral-black-custom w-fit  hover:shadow-xl active:translate-y-[2px] transition-all duration-200 inset-shadow-sm inset-shadow-foreground"
                                 >
                                     <ShinyText
