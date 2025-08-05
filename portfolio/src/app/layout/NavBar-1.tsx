@@ -13,7 +13,7 @@ const initialNavLinks = [
     { href: "/about", label: "ABOUT ME" },
     { href: "/work", label: "WORK" },
     { href: "#service", label: "SERVICE" },
-    { href: "/fun", label: "FUN" },
+    { href: "/soon", label: "FUN" },
     { href: "/contact", label: "CONTACT" },
 ]
 
@@ -23,7 +23,7 @@ const floatingNavLinks = [
     { href: "/about", label: "ABOUT ME" },
     { href: "/work", label: "WORK" },
     { href: "#service", label: "SERVICE" },
-    { href: "/fun", label: "FUN" },
+    { href: "/soon", label: "FUN" },
     { href: "/contact", label: "CONTACT" },
 ]
 
@@ -81,8 +81,8 @@ export default function Navbar() {
                     isAtVeryTop
                         ? "top-0 left-0 right-0 py-4 px-8" // Keadaan awal: lebar penuh, solid putih
                         : showFloatingFullNavbar // Jika tidak di paling atas, cek apakah floating full navbar harus ditampilkan
-                            ? "top-0 mx-auto max-w-screen-xl mt-4 rounded-xl bg-background-custom/80 backdrop-blur-sm shadow-sm p-4" // Keadaan scroll ke atas: floating, semi-transparan
-                            : "top-0 mx-auto max-w-screen-xl mt-4 rounded-xl bg-transparent shadow-none py-3 px-1", // Keadaan scroll ke bawah: floating, transparan
+                            ? "top-0 mx-auto w-full max-w-[1500px] mt-4 rounded-xl bg-background-custom/80 backdrop-blur-sm shadow-sm p-4" // Keadaan scroll ke atas: floating, semi-transparan
+                            : "top-0 mx-auto w-full max-w-[1500px] mt-4 rounded-xl bg-transparent shadow-none py-3 px-1", // Keadaan scroll ke bawah: floating, transparan
                 )}
             >
                 {/* Konten Navbar Awal (Hanya Desktop, saat di bagian paling atas) */}
@@ -92,7 +92,7 @@ export default function Navbar() {
                         !isAtVeryTop && "md:hidden", // Sembunyikan saat discroll ke bawah di desktop
                     )}
                 >
-                    <div className="flex flex-row items-center justify-between w-full px-2">
+                    <div className="flex flex-row items-center justify-between w-full max-w-[1500px] mx-auto px-2">
                         {initialNavLinks.map((link) => (
                             <NavLink
                                 key={link.label}

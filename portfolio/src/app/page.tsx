@@ -332,369 +332,371 @@ export default function Home() {
   }
 
   return (
-    <main className="mx-auto bg-background-custom ">
-      <section id="home" className=" flex  justify-center flex-col overflow-hidden lg:mx-6 md:mx-5 mx-4">
-        <Navbarr />
-        <div className="text-center">
-          <BlurText
-            text="ABDURRAHMAN"
-            delay={120}
-            animateBy="letters"
-            direction="top"
-            className="text-center font-black text-white pt-16 md:pt-7 lg:pt-5 xl:pt-3  -z-10
+    <main className="w-full bg-background-custom ">
+      <div className="max-w-[1520px] mx-auto w-full">
+        <section id="home" className=" flex  justify-center flex-col overflow-hidden lg:mx-6 md:mx-5 mx-4">
+          <Navbarr />
+          <div className="text-center">
+            <BlurText
+              text="ABDURRAHMAN"
+              delay={120}
+              animateBy="letters"
+              direction="top"
+              className="text-center font-black text-white pt-16 md:pt-7 lg:pt-5 xl:pt-3  -z-10
             text-4xl sm:text-6xl md:text-[90px] lg:text-[120px] xl:text-[170px]
             mb-8"
-          />
-        </div>
-        <div className="flex flex-col gap-1 max-w-2xl pt-6 lg:pt-16  xl:pt-32">
-          <div className="flex flex-row items-center gap-2">
-            <Image src={"/icons/icon-accent.svg"} alt="icon" width={20} height={20} className="animate-spin-slow" />
-            <h2 className="uppercase font-Swiss721BT text-base text-neutral-black-700 font-semibold">AVAILABLE FOR NEW PROJECTS</h2>
+            />
           </div>
-          <div className="flex flex-col gap-4">
-            <div>
-              <h1 className="font-Swiss721BT text-xl md:text-2xl text-neutral-black-700 leading-snug flex flex-row flex-wrap items-center gap-2">
-                <span>Get expert</span>
-                <span className="inline-block text-accent-orange">
-                  <RotatingText
-                    texts={[
-                      'development',
-                      'design',
-                      'product thinking'
-                    ]}
-                    mainClassName=""
-                    staggerFrom={"first"}
-                    initial={{ y: "100%", opacity: 0 } as any}
-                    animate={{ y: 0, opacity: 1 } as any}
-                    exit={{ y: "-100%", opacity: 0 } as any}
-                    staggerDuration={0.02}
-                    splitBy="words"
-                    transition={{ type: "spring", damping: 25, stiffness: 300 }}
-                    rotationInterval={2000}
-                  />
-                </span>
-                <span>for a fraction of the price.</span>
-              </h1>
-              <p className="font-Swiss721BT text-xl md:text-2xl text-neutral-black-700">
-                I build beautiful, scalable website experiences with a focus on delivering real results, faster.
-              </p>
+          <div className="flex flex-col gap-1 max-w-2xl pt-6 lg:pt-16  xl:pt-32">
+            <div className="flex flex-row items-center gap-2">
+              <Image src={"/icons/icon-accent.svg"} alt="icon" width={20} height={20} className="animate-spin-slow" />
+              <h2 className="uppercase font-Swiss721BT text-base text-neutral-black-700 font-semibold">AVAILABLE FOR NEW PROJECTS</h2>
             </div>
-            <a
-              href="#contact"
-              className="px-6 py-3 rounded-2xl bg-neutral-black-custom w-fit  hover:shadow-xl active:translate-y-[2px] transition-all duration-200 border border-neutral-700 inset-shadow-sm inset-shadow-foreground"
-              onClick={e => {
-                e.preventDefault();
-                document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-              }}
-            >
-              <ShinyText
-                text="Let’s Make Magic!"
-                disabled={false}
-                speed={3}
-                className="font-Swiss721BT uppercase text-xl md:text-2xl text-accent-orange drop-shadow-[1px_1px_1px_rgba(0,0,0,0.5)]"
-              />
-            </a>
+            <div className="flex flex-col gap-4">
+              <div>
+                <h1 className="font-Swiss721BT text-xl md:text-2xl text-neutral-black-700 leading-snug flex flex-row flex-wrap items-center gap-2">
+                  <span>Get expert</span>
+                  <span className="inline-block text-accent-orange">
+                    <RotatingText
+                      texts={[
+                        'development',
+                        'design',
+                        'product thinking'
+                      ]}
+                      mainClassName=""
+                      staggerFrom={"first"}
+                      initial={{ y: "100%", opacity: 0 } as any}
+                      animate={{ y: 0, opacity: 1 } as any}
+                      exit={{ y: "-100%", opacity: 0 } as any}
+                      staggerDuration={0.02}
+                      splitBy="words"
+                      transition={{ type: "spring", damping: 25, stiffness: 300 }}
+                      rotationInterval={2000}
+                    />
+                  </span>
+                  <span>for a fraction of the price.</span>
+                </h1>
+                <p className="font-Swiss721BT text-xl md:text-2xl text-neutral-black-700">
+                  I build beautiful, scalable website experiences with a focus on delivering real results, faster.
+                </p>
+              </div>
+              <a
+                href="#contact"
+                className="px-6 py-3 rounded-2xl bg-neutral-black-custom w-fit  hover:shadow-xl active:translate-y-[2px] transition-all duration-200 border border-neutral-700 inset-shadow-sm inset-shadow-foreground"
+                onClick={e => {
+                  e.preventDefault();
+                  document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+              >
+                <ShinyText
+                  text="Let’s Make Magic!"
+                  disabled={false}
+                  speed={3}
+                  className="font-Swiss721BT uppercase text-xl md:text-2xl text-accent-orange drop-shadow-[1px_1px_1px_rgba(0,0,0,0.5)]"
+                />
+              </a>
+            </div>
           </div>
+        </section>
+        <section id="moving-cards" className="pt-12 md:pt-20 lg:pt-32 pb-24 md:pb-56 bg-gradient-to-b from-background-custom via-background-custom to-[#010101]">
+          <div className="flex flex-col gap-0 w-full">
+            <InfiniteScrollCards
+              items={[
+                {
+                  name: "Design Project 1",
+                  image: "/images/tumb_des_1.png"
+                },
+                {
+                  name: "Design Project 2",
+                  image: "/images/tumb_des_2.png"
+                },
+                {
+                  name: "Design Project 3",
+                  image: "/images/tumb_des_3.png"
+                },
+                {
+                  name: "Design Project 4",
+                  image: "/images/tumb_des_4.png"
+                },
+                {
+                  name: "Design Project 5",
+                  image: "/images/tumb_des_5.png"
+                }
+              ]}
+              direction="left"
+              speed="normal"
+              pauseOnHover={true}
+              className="my-0"
+            />
+            <InfiniteScrollCards
+              items={[
+                {
+                  name: "Design Project 5",
+                  image: "/images/tumb_des_6.png"
+                },
+                {
+                  name: "Design Project 1",
+                  image: "/images/tumb_des_7.png"
+                },
+                {
+                  name: "Design Project 2",
+                  image: "/images/tumb_des_8.png"
+                },
+                {
+                  name: "Design Project 3",
+                  image: "/images/tumb_des_9.png"
+                },
+                {
+                  name: "Design Project 4",
+                  image: "/images/tumb_des_10.png"
+                },
+              ]}
+              direction="right"
+              speed="normal"
+              pauseOnHover={true}
+              className="my-0"
+            />
+          </div>
+        </section>
+        <div id="work" className=" min-h-screen bg-[#010101]">
+          <MixedScrollSections />
         </div>
-      </section>
-      <section id="moving-cards" className="pt-12 md:pt-20 lg:pt-32 pb-24 md:pb-56 bg-gradient-to-b from-background-custom via-background-custom to-[#010101]">
-        <div className="flex flex-col gap-0 w-full">
-          <InfiniteScrollCards
-            items={[
-              {
-                name: "Design Project 1",
-                image: "/images/tumb_des_1.png"
-              },
-              {
-                name: "Design Project 2",
-                image: "/images/tumb_des_2.png"
-              },
-              {
-                name: "Design Project 3",
-                image: "/images/tumb_des_3.png"
-              },
-              {
-                name: "Design Project 4",
-                image: "/images/tumb_des_4.png"
-              },
-              {
-                name: "Design Project 5",
-                image: "/images/tumb_des_5.png"
-              }
-            ]}
-            direction="left"
-            speed="normal"
-            pauseOnHover={true}
-            className="my-0"
-          />
-          <InfiniteScrollCards
-            items={[
-              {
-                name: "Design Project 5",
-                image: "/images/tumb_des_6.png"
-              },
-              {
-                name: "Design Project 1",
-                image: "/images/tumb_des_7.png"
-              },
-              {
-                name: "Design Project 2",
-                image: "/images/tumb_des_8.png"
-              },
-              {
-                name: "Design Project 3",
-                image: "/images/tumb_des_9.png"
-              },
-              {
-                name: "Design Project 4",
-                image: "/images/tumb_des_10.png"
-              },
-            ]}
-            direction="right"
-            speed="normal"
-            pauseOnHover={true}
-            className="my-0"
-          />
-        </div>
-      </section>
-      <div id="work" className=" min-h-screen bg-[#010101]">
-        <MixedScrollSections />
-      </div>
-      <section id="service" className="min-h-screen relative bg-[#010101] flex items-center justify-center">
-        {/* DotGrid as background */}
-        <div className="absolute inset-0 w-full h-full">
-          <DotGrid
-            dotSize={4}
-            gap={28}
-            baseColor="#010101"
-            activeColor="#FF4409"
-            proximity={250}
-            shockRadius={250}
-            shockStrength={5}
-            resistance={1050}
-            returnDuration={2.5}
-          />
-        </div>
+        <section id="service" className="min-h-screen relative bg-[#010101] flex items-center justify-center overflow-hidden">
+          {/* DotGrid as background */}
+          <div className="absolute inset-0 w-full h-full">
+            <DotGrid
+              dotSize={4}
+              gap={28}
+              baseColor="#010101"
+              activeColor="#FF4409"
+              proximity={250}
+              shockRadius={250}
+              shockStrength={5}
+              resistance={1050}
+              returnDuration={2.5}
+            />
+          </div>
 
-        {/* Timeline content - centered container */}
-        <div className="relative z-10 w-full mx-auto flex items-center justify-center ">
-          <Timeline data={timelineData} />
-        </div>
-      </section>
-      <div className="my-10 md:my-20">
-        <Link href='/soon' >
-          <ScrollVelocity
-            texts={['MOVE TO', 'DESIGN EXPLORATION']}
-            velocity={velocity}
-            className="font-TiemposHeadlineLight font-bold text-4xl md:text-5xl lg:text-8xl tracking-wide"
-          />
-        </Link>
-      </div>
-      <section id="faq" className=" flex flex-col my-10 xl:my-44 lg:mx-6 md:mx-5 sm:mx-4 mx-2 gap-20">
-        <div className="flex flex-col gap-10">
-          <div className="flex flex-col gap-1">
-            <h2 className="font-TiemposHeadlineLight font-medium text-center leading-snug text-5xl xl:text-6xl ">Frequently Asked Questions</h2>
+          {/* Timeline content - centered container */}
+          <div className="relative z-10 w-full mx-auto flex items-center justify-center ">
+            <Timeline data={timelineData} />
           </div>
-          <div className="flex flex-col gap-3 md:gap-8">
-            <FAQ items={faqData} />
-          </div>
+        </section>
+        <div className="my-10 md:my-20">
+          <Link href='/soon' >
+            <ScrollVelocity
+              texts={['MOVE TO', 'DESIGN EXPLORATION']}
+              velocity={velocity}
+              className="font-TiemposHeadlineLight font-bold text-4xl md:text-5xl lg:text-8xl tracking-wide"
+            />
+          </Link>
         </div>
-      </section>
-      <section id="testimonials" className="relative mb-20">
-        <div className="flex flex-col gap-6 w-full py-10 md:py-14 lg:py-20 px-4 md:px-0">
+        <section id="faq" className=" flex flex-col my-10 xl:my-44 lg:mx-6 md:mx-5 sm:mx-4 mx-2 gap-20">
+          <div className="flex flex-col gap-10">
+            <div className="flex flex-col gap-1">
+              <h2 className="font-TiemposHeadlineLight font-medium text-center leading-snug text-5xl xl:text-6xl ">Frequently Asked Questions</h2>
+            </div>
+            <div className="flex flex-col gap-3 md:gap-8">
+              <FAQ items={faqData} />
+            </div>
+          </div>
+        </section>
+        <section id="testimonials" className="relative mb-20">
+          <div className="flex flex-col gap-6 w-full py-10 md:py-14 lg:py-20 px-4 md:px-0">
+            <div className="relative">
+              <h3 className="font-TiemposHeadlineLight font-medium leading-snug text-4xl lg:text-6xl text-center text-neutral-black-custom">
+                Built for people like you, <br /> loved by people like you
+              </h3>
+            </div>
+          </div>
+
+          {/* Carousel Container with Hover Controls */}
           <div className="relative">
-            <h3 className="font-TiemposHeadlineLight font-medium leading-snug text-4xl lg:text-6xl text-center text-neutral-black-custom">
-              Built for people like you, <br /> loved by people like you
-            </h3>
-          </div>
-        </div>
-
-        {/* Carousel Container with Hover Controls */}
-        <div className="relative">
-          {/* Left Hover Zone */}
-          <div
-            className="absolute left-0 top-0 w-20 h-full z-10 flex items-center justify-start pl-4"
-            onMouseEnter={() => setShowLeftArrow(true)}
-            onMouseLeave={() => setShowLeftArrow(false)}
-          >
+            {/* Left Hover Zone */}
             <div
-              className={`transition-all duration-300 cursor-pointer bg-white/90 backdrop-blur-sm rounded-full p-3 shadow-lg hover:bg-white hover:scale-110 ${showLeftArrow ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-4"
-                }`}
-              onClick={scrollLeft}
+              className="absolute left-0 top-0 w-20 h-full z-10 flex items-center justify-start pl-4"
+              onMouseEnter={() => setShowLeftArrow(true)}
+              onMouseLeave={() => setShowLeftArrow(false)}
             >
-              <Image src={"/icons/icon-arrow.svg"} width={60} height={60} alt="arrow down" className="rounded-full bg-background-custom w-fit rotate-180" />
+              <div
+                className={`transition-all duration-300 cursor-pointer bg-white/90 backdrop-blur-sm rounded-full p-3 shadow-lg hover:bg-white hover:scale-110 ${showLeftArrow ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-4"
+                  }`}
+                onClick={scrollLeft}
+              >
+                <Image src={"/icons/icon-arrow.svg"} width={60} height={60} alt="arrow down" className="rounded-full bg-background-custom w-fit rotate-180" />
 
+              </div>
             </div>
-          </div>
 
-          {/* Right Hover Zone */}
-          <div
-            className="absolute right-0 top-0 w-20 h-full z-10 flex items-center justify-end pr-4"
-            onMouseEnter={() => setShowRightArrow(true)}
-            onMouseLeave={() => setShowRightArrow(false)}
-          >
+            {/* Right Hover Zone */}
             <div
-              className={`transition-all duration-300 cursor-pointer bg-white/90 backdrop-blur-sm rounded-full p-3 shadow-lg hover:bg-white hover:scale-110 ${showRightArrow ? "opacity-100 translate-x-0" : "opacity-0 translate-x-4"
-                }`}
-              onClick={scrollRight}
+              className="absolute right-0 top-0 w-20 h-full z-10 flex items-center justify-end pr-4"
+              onMouseEnter={() => setShowRightArrow(true)}
+              onMouseLeave={() => setShowRightArrow(false)}
             >
-              <Image src={"/icons/icon-arrow.svg"} width={60} height={60} alt="arrow down" className="rounded-full bg-background-custom w-fit" />
+              <div
+                className={`transition-all duration-300 cursor-pointer bg-white/90 backdrop-blur-sm rounded-full p-3 shadow-lg hover:bg-white hover:scale-110 ${showRightArrow ? "opacity-100 translate-x-0" : "opacity-0 translate-x-4"
+                  }`}
+                onClick={scrollRight}
+              >
+                <Image src={"/icons/icon-arrow.svg"} width={60} height={60} alt="arrow down" className="rounded-full bg-background-custom w-fit" />
+              </div>
+            </div>
+
+            {/* Carousel Content */}
+            <div
+              ref={scrollContainerRef}
+              className="px-6 flex flex-row h-screen gap-6 w-full overflow-x-scroll snap-x snap-mandatory scrollbar-hide scroll-smooth"
+            >
+              {/* Testimonial Card 1 */}
+              <div className="snap-start flex-none flex flex-col justify-between p-7 bg-bg-medium-gray w-[460px] rounded-[40px] h-[720px]">
+                <div className="flex flex-row justify-between items-center">
+                  <Image
+                    src={"/images/Erik.png"}
+                    alt="testi-1"
+                    width={72}
+                    height={72}
+                    className="rounded-full"
+                  />
+                  <div className="p-5 border border-medium-gray-custom rounded-full">
+                    <Image src={"/images/logo-1.svg"} alt="logo-1" width={100} height={100} />
+                  </div>
+                </div>
+                <div className="flex flex-col gap-2">
+                  <p className="text-7xl font-Swiss721BTBlack font-bold text-accent-orange">"</p>
+                  <p className="text-3xl font-medium font-Swiss721BT">
+                    Incredible quality and fast turnaround. Abdurrahman is a true professional who understood our needs
+                    perfectly. We highly recommend their services.
+                  </p>
+                </div>
+                <div className="flex flex-row gap-4">
+                  <div className="flex flex-col items-center h-20 text-medium-gray-custom">
+                    <hr className="border border-medium-gray-custom w-px h-full" />
+                  </div>
+                  <div className="flex flex-col gap-1 justify-center pb-6">
+                    <p className="text-xl font-Swiss721BT text-neutral-black-custom">John Felix</p>
+                    <p className="text-sm font-Swiss721BT text-medium-gray-custom">
+                      CEO, tyco Electronics <br />
+                      Jakarta, Indonesia
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Testimonial Card 2 */}
+              <div className="snap-start flex-none flex flex-col justify-between p-7 bg-bg-medium-gray w-[460px] rounded-[40px] h-[720px]">
+                <div className="flex flex-row justify-between items-center">
+                  <Image
+                    src={"/images/Jim.png"}
+                    alt="testi-2"
+                    width={72}
+                    height={72}
+                    className="rounded-full"
+                  />
+                  <div className="p-5 border border-medium-gray-custom rounded-full">
+                    <Image src={"/images/logo-2.svg"} alt="logo-2" width={100} height={100} />
+                  </div>
+                </div>
+                <div className="flex flex-col gap-2">
+                  <p className="text-7xl font-Swiss721BTBlack font-bold text-accent-orange">"</p>
+                  <p className="text-3xl font-medium font-Swiss721BT">
+                    Abdurrahman's expertise in UI/UX design and web development is outstanding. They brought a creative and
+                    effective approach to our project, leading to a brilliant result.
+                  </p>
+                </div>
+                <div className="flex flex-row gap-4">
+                  <div className="flex flex-col items-center h-20 text-medium-gray-custom">
+                    <hr className="border border-medium-gray-custom w-px h-full" />
+                  </div>
+                  <div className="flex flex-col gap-1 justify-center pb-6">
+                    <p className="text-xl font-Swiss721BT text-neutral-black-custom">Alexander Gergous</p>
+                    <p className="text-sm font-Swiss721BT text-medium-gray-custom">
+                      Product Manager, purple arch <br />
+                      Jakarta, Indonesia
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Testimonial Card 3 */}
+              <div className="snap-start flex-none flex flex-col justify-between p-7 bg-bg-medium-gray w-[460px] rounded-[40px] h-[720px]">
+                <div className="flex flex-row justify-between items-center">
+                  <Image
+                    src={"/images/Jon.png"}
+                    alt="testi-3"
+                    width={72}
+                    height={72}
+                    className="rounded-full"
+                  />
+                  <div className="p-5 border border-medium-gray-custom rounded-full">
+                    <Image src={"/images/logo-3.svg"} alt="logo-3" width={100} height={100} />
+                  </div>
+                </div>
+                <div className="flex flex-col gap-2">
+                  <p className="text-7xl font-Swiss721BTBlack font-bold text-accent-orange">"</p>
+                  <p className="text-3xl font-medium font-Swiss721BT">
+                    The entire process was seamless. Abdurrahman is a great communicator and collaborator, turning our
+                    vision into a reality effortlessly. We're thrilled with the final outcome.
+                  </p>
+                </div>
+                <div className="flex flex-row gap-4">
+                  <div className="flex flex-col items-center h-20 text-medium-gray-custom">
+                    <hr className="border border-medium-gray-custom w-px h-full" />
+                  </div>
+                  <div className="flex flex-col gap-1 justify-center pb-6">
+                    <p className="text-xl font-Swiss721BT text-neutral-black-custom">Erik Kurniawan</p>
+                    <p className="text-sm font-Swiss721BT text-medium-gray-custom">
+                      CTO, waveset lighthouse  <br />
+                      Jakarta, Indonesia
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Testimonial Card 4 */}
+              <div className="snap-start flex-none flex flex-col justify-between p-7 bg-bg-medium-gray w-[460px] rounded-[40px] h-[720px]">
+                <div className="flex flex-row justify-between items-center">
+                  <Image
+                    src={"/images/steave.png"}
+                    alt="testi-4"
+                    width={72}
+                    height={72}
+                    className="rounded-full"
+                  />
+                  <div className="p-5 border border-medium-gray-custom rounded-full">
+                    <Image src={"/images/logo-4.svg"} alt="logo-4" width={100} height={100} />
+                  </div>
+                </div>
+                <div className="flex flex-col gap-2">
+                  <p className="text-7xl font-Swiss721BTBlack font-bold text-accent-orange">"</p>
+                  <p className="text-3xl font-medium font-Swiss721BT">
+                    Working with Abdurrahman was a fantastic experience. They delivered exceptional results that went above
+                    and beyond our expectations. Highly professional and truly talented.
+                  </p>
+                </div>
+                <div className="flex flex-row gap-4">
+                  <div className="flex flex-col items-center h-20 text-medium-gray-custom">
+                    <hr className="border border-medium-gray-custom w-px h-full" />
+                  </div>
+                  <div className="flex flex-col gap-1 justify-center pb-6">
+                    <p className="text-xl font-Swiss721BT text-neutral-black-custom">Steve Wijaya</p>
+                    <p className="text-sm font-Swiss721BT text-medium-gray-custom">
+                      CMO, ALLCASH  <br />
+                      Jakarta, Indonesia
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-
-          {/* Carousel Content */}
-          <div
-            ref={scrollContainerRef}
-            className="px-6 flex flex-row h-screen gap-6 w-full overflow-x-scroll snap-x snap-mandatory scrollbar-hide scroll-smooth"
-          >
-            {/* Testimonial Card 1 */}
-            <div className="snap-start flex-none flex flex-col justify-between p-7 bg-bg-medium-gray w-[460px] rounded-[40px] h-[720px]">
-              <div className="flex flex-row justify-between items-center">
-                <Image
-                  src={"/images/Erik.png"}
-                  alt="testi-1"
-                  width={72}
-                  height={72}
-                  className="rounded-full"
-                />
-                <div className="p-5 border border-medium-gray-custom rounded-full">
-                  <Image src={"/images/logo-1.svg"} alt="logo-1" width={100} height={100} />
-                </div>
-              </div>
-              <div className="flex flex-col gap-2">
-                <p className="text-7xl font-Swiss721BTBlack font-bold text-accent-orange">"</p>
-                <p className="text-3xl font-medium font-Swiss721BT">
-                  Incredible quality and fast turnaround. Abdurrahman is a true professional who understood our needs
-                  perfectly. We highly recommend their services.
-                </p>
-              </div>
-              <div className="flex flex-row gap-4">
-                <div className="flex flex-col items-center h-20 text-medium-gray-custom">
-                  <hr className="border border-medium-gray-custom w-px h-full" />
-                </div>
-                <div className="flex flex-col gap-1 justify-center pb-6">
-                  <p className="text-xl font-Swiss721BT text-neutral-black-custom">John Felix</p>
-                  <p className="text-sm font-Swiss721BT text-medium-gray-custom">
-                    CEO, tyco Electronics <br />
-                    Jakarta, Indonesia
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Testimonial Card 2 */}
-            <div className="snap-start flex-none flex flex-col justify-between p-7 bg-bg-medium-gray w-[460px] rounded-[40px] h-[720px]">
-              <div className="flex flex-row justify-between items-center">
-                <Image
-                  src={"/images/Jim.png"}
-                  alt="testi-2"
-                  width={72}
-                  height={72}
-                  className="rounded-full"
-                />
-                <div className="p-5 border border-medium-gray-custom rounded-full">
-                  <Image src={"/images/logo-2.svg"} alt="logo-2" width={100} height={100} />
-                </div>
-              </div>
-              <div className="flex flex-col gap-2">
-                <p className="text-7xl font-Swiss721BTBlack font-bold text-accent-orange">"</p>
-                <p className="text-3xl font-medium font-Swiss721BT">
-                  Abdurrahman's expertise in UI/UX design and web development is outstanding. They brought a creative and
-                  effective approach to our project, leading to a brilliant result.
-                </p>
-              </div>
-              <div className="flex flex-row gap-4">
-                <div className="flex flex-col items-center h-20 text-medium-gray-custom">
-                  <hr className="border border-medium-gray-custom w-px h-full" />
-                </div>
-                <div className="flex flex-col gap-1 justify-center pb-6">
-                  <p className="text-xl font-Swiss721BT text-neutral-black-custom">Alexander Gergous</p>
-                  <p className="text-sm font-Swiss721BT text-medium-gray-custom">
-                    Product Manager, purple arch <br />
-                    Jakarta, Indonesia
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Testimonial Card 3 */}
-            <div className="snap-start flex-none flex flex-col justify-between p-7 bg-bg-medium-gray w-[460px] rounded-[40px] h-[720px]">
-              <div className="flex flex-row justify-between items-center">
-                <Image
-                  src={"/images/Jon.png"}
-                  alt="testi-3"
-                  width={72}
-                  height={72}
-                  className="rounded-full"
-                />
-                <div className="p-5 border border-medium-gray-custom rounded-full">
-                  <Image src={"/images/logo-3.svg"} alt="logo-3" width={100} height={100} />
-                </div>
-              </div>
-              <div className="flex flex-col gap-2">
-                <p className="text-7xl font-Swiss721BTBlack font-bold text-accent-orange">"</p>
-                <p className="text-3xl font-medium font-Swiss721BT">
-                  The entire process was seamless. Abdurrahman is a great communicator and collaborator, turning our
-                  vision into a reality effortlessly. We're thrilled with the final outcome.
-                </p>
-              </div>
-              <div className="flex flex-row gap-4">
-                <div className="flex flex-col items-center h-20 text-medium-gray-custom">
-                  <hr className="border border-medium-gray-custom w-px h-full" />
-                </div>
-                <div className="flex flex-col gap-1 justify-center pb-6">
-                  <p className="text-xl font-Swiss721BT text-neutral-black-custom">Erik Kurniawan</p>
-                  <p className="text-sm font-Swiss721BT text-medium-gray-custom">
-                    CTO, waveset lighthouse  <br />
-                    Jakarta, Indonesia
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Testimonial Card 4 */}
-            <div className="snap-start flex-none flex flex-col justify-between p-7 bg-bg-medium-gray w-[460px] rounded-[40px] h-[720px]">
-              <div className="flex flex-row justify-between items-center">
-                <Image
-                  src={"/images/steave.png"}
-                  alt="testi-4"
-                  width={72}
-                  height={72}
-                  className="rounded-full"
-                />
-                <div className="p-5 border border-medium-gray-custom rounded-full">
-                  <Image src={"/images/logo-4.svg"} alt="logo-4" width={100} height={100} />
-                </div>
-              </div>
-              <div className="flex flex-col gap-2">
-                <p className="text-7xl font-Swiss721BTBlack font-bold text-accent-orange">"</p>
-                <p className="text-3xl font-medium font-Swiss721BT">
-                  Working with Abdurrahman was a fantastic experience. They delivered exceptional results that went above
-                  and beyond our expectations. Highly professional and truly talented.
-                </p>
-              </div>
-              <div className="flex flex-row gap-4">
-                <div className="flex flex-col items-center h-20 text-medium-gray-custom">
-                  <hr className="border border-medium-gray-custom w-px h-full" />
-                </div>
-                <div className="flex flex-col gap-1 justify-center pb-6">
-                  <p className="text-xl font-Swiss721BT text-neutral-black-custom">Steve Wijaya</p>
-                  <p className="text-sm font-Swiss721BT text-medium-gray-custom">
-                    CMO, ALLCASH  <br />
-                    Jakarta, Indonesia
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section id='contact'>
-        <ContactComp />
-      </section>
-      <section id='footer'>
-        <Footer />
-      </section>
+        </section>
+        <section id='contact'>
+          <ContactComp />
+        </section>
+        <section id='footer' className="overflow-hidden">
+          <Footer />
+        </section>
+      </div>
     </main>
   );
 }
