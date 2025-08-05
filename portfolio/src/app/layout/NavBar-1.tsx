@@ -10,7 +10,7 @@ import NavLink from "../../../components/NavLink";
 // Tautan untuk keadaan awal (top header)
 const initialNavLinks = [
     { href: "/", label: "HOME", isHighlighted: true },
-    { href: "/about", label: "ABOUT" },
+    { href: "/about", label: "ABOUT ME" },
     { href: "/work", label: "WORK" },
     { href: "#service", label: "SERVICE" },
     { href: "/fun", label: "FUN" },
@@ -20,7 +20,7 @@ const initialNavLinks = [
 // Tautan untuk keadaan floating full navbar (sama dengan initial)
 const floatingNavLinks = [
     { href: "/", label: "HOME", isHighlighted: false },
-    { href: "/about", label: "ABOUT" },
+    { href: "/about", label: "ABOUT ME" },
     { href: "/work", label: "WORK" },
     { href: "#service", label: "SERVICE" },
     { href: "/fun", label: "FUN" },

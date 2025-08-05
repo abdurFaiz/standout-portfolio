@@ -16,7 +16,7 @@ import MixedScrollSections from "../../components/Scroll2Direction";
 import { gsap } from "gsap";
 import Navbarr from "./layout/NavBar-1"
 import Footer from "./layout/Footer";
-import emailjs from '@emailjs/browser';
+import ContactComp from "../../components/ContactComponent";
 
 // Define timeline data
 const timelineData = [
@@ -279,9 +279,6 @@ const people = [
 ];
 
 export default function Home() {
-  const form = useRef<HTMLFormElement>(null);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<'success' | 'error' | ''>('');
   const [activeProject, setActiveProject] = useState(0);
   const [velocity, setVelocity] = useState(0);
   const scrollContainerRef = useRef<HTMLDivElement>(null)
@@ -333,42 +330,6 @@ export default function Home() {
       })
     }
   }
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setSubmitStatus('');
-
-    try {
-      // Replace these with your actual EmailJS credentials
-      const result = await emailjs.sendForm(
-        'service_7vp42sk0423',     // Your service ID
-        'template_c94hs4j',        // Your template ID
-        form.current as HTMLFormElement,
-        '5DAG-pyCI9LMEAWYT'        // Your public key
-      );
-
-      console.log('Email sent successfully:', result.text);
-      setSubmitStatus('success');
-
-      // Type-safe form reset
-      if (form.current) {
-        (form.current as HTMLFormElement).reset();
-      }
-
-      // Clear success message after 5 seconds
-      setTimeout(() => setSubmitStatus(''), 5000);
-
-    } catch (error) {
-      console.error('Email sending failed:', error);
-      setSubmitStatus('error');
-
-      // Clear error message after 5 seconds
-      setTimeout(() => setSubmitStatus(''), 5000);
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
 
   return (
     <main className="mx-auto bg-background-custom ">
@@ -649,7 +610,7 @@ export default function Home() {
                 <div className="flex flex-col gap-1 justify-center pb-6">
                   <p className="text-xl font-Swiss721BT text-neutral-black-custom">Alexander Gergous</p>
                   <p className="text-sm font-Swiss721BT text-medium-gray-custom">
-                    Product Designer, tyco Electronics <br />
+                    Product Manager, purple arch <br />
                     Jakarta, Indonesia
                   </p>
                 </div>
@@ -684,7 +645,7 @@ export default function Home() {
                 <div className="flex flex-col gap-1 justify-center pb-6">
                   <p className="text-xl font-Swiss721BT text-neutral-black-custom">Erik Kurniawan</p>
                   <p className="text-sm font-Swiss721BT text-medium-gray-custom">
-                    Product Designer, tyco Electronics <br />
+                    CTO, waveset lighthouse  <br />
                     Jakarta, Indonesia
                   </p>
                 </div>
@@ -719,7 +680,7 @@ export default function Home() {
                 <div className="flex flex-col gap-1 justify-center pb-6">
                   <p className="text-xl font-Swiss721BT text-neutral-black-custom">Steve Wijaya</p>
                   <p className="text-sm font-Swiss721BT text-medium-gray-custom">
-                    Product Owner, tyco Electronics <br />
+                    CMO, ALLCASH  <br />
                     Jakarta, Indonesia
                   </p>
                 </div>
@@ -728,97 +689,9 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <div id="contact" className="min-h-screen">
-        <div className="flex flex-col gap-16">
-          <h2 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-Swiss721BT font-medium text-neutral-black-custom leading-tight px-6">Let’s start shaping <br /> <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent-orange to-medium-gray-custom">your ideas together_</span></h2>
-          {submitStatus === 'success' && (
-            <div className="mx-6 p-4 bg-green-100 border border-green-400 text-green-700 rounded">
-              Thank you! Your message has been sent successfully.
-            </div>
-          )}
-
-          {submitStatus === 'error' && (
-            <div className="mx-6 p-4 bg-red-100 border border-red-400 text-red-700 rounded">
-              Sorry, there was an error sending your message. Please try again.
-            </div>
-          )}
-
-          <form ref={form} onSubmit={handleSubmit} action="post" className="flex flex-col gap-6">
-            <div className="flex flex-col flex-wrap lg:flex-row lg:items-center gap-2 lg:gap-4 px-6">
-              <label className="text-4xl lg:text-5xl font-Swiss721BT text-neutral-black-custom" htmlFor="name">
-                My Name is
-              </label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                placeholder="first and last name"
-                className="text-3xl lg:text-4xl px-4 py-2 border-b text-accent-orange w-full lg:w-fit border-neutral-black-300 transition duration-200 outline-none"
-                required
-                disabled={isSubmitting}
-
-              />
-              <label className="text-4xl lg:text-5xl font-Swiss721BT text-neutral-black-custom mt-2 lg:mt-0" htmlFor="service">
-                and I'm interested in
-              </label>
-              <input
-                type="text"
-                id="service"
-                name="service"
-                placeholder="service name"
-                className="text-3xl lg:text-4xl px-4 py-2 border-b text-accent-orange w-full lg:w-fit border-neutral-black-300 transition duration-200 outline-none"
-                required
-                disabled={isSubmitting}
-
-              />
-            </div>
-
-            <div className="flex flex-col lg:flex-row lg:items-center gap-2 lg:gap-4 px-6">
-              <label className="text-4xl lg:text-5xl font-Swiss721BT text-neutral-black-custom" htmlFor="email">
-                Please, contact me at
-              </label>
-              <input
-                type="email"
-                id="email"
-                name="from_email"
-                placeholder="name@example.com"
-                className="text-3xl lg:text-4xl px-4 py-2 border-b text-accent-orange w-full lg:w-fit border-neutral-black-300 transition duration-200 outline-none"
-                required
-                disabled={isSubmitting}
-
-              />
-            </div>
-
-            <div className="flex flex-col lg:flex-row lg:items-start gap-2 lg:gap-4 px-6">
-              <label className="text-4xl lg:text-5xl font-Swiss721BT text-neutral-black-custom lg:pt-2" htmlFor="message">
-                Optionally, I'm sharing more:
-              </label>
-              <textarea
-                disabled={isSubmitting}
-                id="message"
-                name="message"
-                rows={1}
-                placeholder="your project details"
-                className="text-3xl lg:text-4xl px-4 py-2 border-b text-accent-orange w-full lg:w-fit border-neutral-black-300 transition duration-200 outline-none resize-none min-h-[2.5rem]"
-              ></textarea>
-            </div>
-
-            <div className="flex  px-6 py-10 lg:py-12">
-              <button
-                type="submit"
-                className={`flex justify-between w-full md:w-fit md:justify-start items-center gap-2 sm:gap-4 px-4 sm:px-6 py-2 sm:py-3 bg-neutral-black-custom text-background-custom font-Swiss721BT font-medium text-2xl rounded-full transition duration-200 ${isSubmitting
-                  ? 'opacity-70 cursor-not-allowed'
-                  : 'hover:bg-opacity-90'
-                  }`}              >
-                {isSubmitting ? 'Sending...' : 'Send request'}
-                <div className=" rounded-full bg-background-custom flex items-center justify-center">
-                  <Image src={"/icons/icon-arrow.svg"} alt="arrow" width={24} height={24} className="size-12" />
-                </div>
-              </button>
-            </div>
-          </form>
-        </div>
-      </div>
+      <section id='contact'>
+        <ContactComp />
+      </section>
       <section id='footer'>
         <Footer />
       </section>
