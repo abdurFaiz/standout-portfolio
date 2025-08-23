@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import PageTransition from '../../components/PageTransition';
-import RouteChangeHandler from '../../components/RouteChangeHandler';
 
 export const metadata: Metadata = {
   title: "Abdurrahman Portfolio",
@@ -25,11 +23,7 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth">
       <body
       >
-        <RouteChangeHandler>
-          <PageTransition>
-            {children}
-          </PageTransition>
-        </RouteChangeHandler>
+        {children}
       </body>
     </html>
   );
